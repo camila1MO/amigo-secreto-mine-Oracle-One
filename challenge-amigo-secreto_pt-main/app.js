@@ -14,12 +14,12 @@ function textoInicial(){
 function adicionandoAmigos(){
      amigos=document.getElementById("amigo").value;
     
-    if(amigos==" "){
+    if(amigos==""){
        console.log("entrada invalida, digite um nome válido");
        return;
     } 
     listadeAmigos.push(amigos);
-    document.getElementById("amigo").value=" ";
+    document.getElementById("amigo").value="";
     listadoUsuário();
 }
 //como relaciona html/css com js?????
@@ -29,12 +29,14 @@ function sorteandoAmigos(){
     //listadeAmigos=[];
     if (listadeAmigos.length > 0){
         console.log("lista válida");
-        let indiceLista= Math.floor(Math.random()*listadeAmigos.length);
-        let aleatoridades= listadeAmigos[indiceLista];
-        //console.log(aleatoridades);
+        let indiceLista= Math.floor(Math.random() * listadeAmigos.length);
+        let aleatorio;
+        aleatorio= listadeAmigos[indiceLista];
+        
         const resultado=document.getElementById("resultado");
-        resultado.innerHTML=" ";
-        console.log(resultado);
+        resultado.innerHTML="";
+        //console.log(resultado.innerHTML);
+        resultado.innerHTML=`<li> <strong>${aleatorio}</strong></li>`;
     }
     else{
         console.log("lista inválida, digite o nome dos seus amigos");
@@ -45,7 +47,7 @@ function sorteandoAmigos(){
 
 function listadoUsuário(){
     let listinha=document.getElementById("listaAmigos");
-    listinha.innerHTML=" ";
+    listinha.innerHTML="";
 
 
 for(let amigos of listadeAmigos){
