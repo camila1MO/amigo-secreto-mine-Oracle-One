@@ -3,6 +3,7 @@
 
 alert("Jogo do amigo secreto");
 let listadeAmigos= [];
+let amigos;
 
 // texto na tela inicial
 function textoInicial(){
@@ -11,20 +12,50 @@ function textoInicial(){
 
 // criando a lista visivel 
 function adicionandoAmigos(){
-    let amigos=prompt("digite o nome dos seus amigos>>>\n ");
+     amigos=document.getElementById("amigo").value;
     
     if(amigos==" "){
        console.log("entrada invalida, digite um nome válido");
+       return;
     } 
     listadeAmigos.push(amigos);
-    console.log(listadeAmigos);
+    document.getElementById("amigo").value=" ";
+    listadoUsuário();
 }
 //como relaciona html/css com js?????
 
 //função para sortear uma amigo 
 function sorteandoAmigos(){
-    listadeAmigos=[];
-    let indiceLista= Math.floor(Math.random()*listadeAmigos.length);
-    let aleatoridades= listadeAmigos[indiceLista];
-    console.log(aleatoridades);
+    //listadeAmigos=[];
+    if (listadeAmigos.length > 0){
+        console.log("lista válida");
+        let indiceLista= Math.floor(Math.random()*listadeAmigos.length);
+        let aleatoridades= listadeAmigos[indiceLista];
+        //console.log(aleatoridades);
+        const resultado=document.getElementById("resultado");
+        resultado.innerHTML=" ";
+        console.log(resultado);
+    }
+    else{
+        console.log("lista inválida, digite o nome dos seus amigos");
+        return;
+    }
+   
 }
+
+function listadoUsuário(){
+    let listinha=document.getElementById("listaAmigos");
+    listinha.innerHTML=" ";
+
+
+for(let amigos of listadeAmigos){
+    let itemLista=document.createElement("li");
+    itemLista.textContent=amigos;
+    listinha.appendChild(itemLista);
+}
+}
+
+textoInicial();
+adicionandoAmigos();
+sorteandoAmigos();
+listadoUsuário();
