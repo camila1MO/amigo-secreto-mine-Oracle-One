@@ -36,7 +36,7 @@ function sorteandoAmigos(){
         const resultado=document.getElementById("resultado");
         resultado.innerHTML="";
         //console.log(resultado.innerHTML);
-        resultado.innerHTML=`<li> <strong>${aleatorio}</strong></li>`;
+        resultado.innerHTML=`<li> O amigo secreto escolhido é: <strong>${aleatorio}</strong></li>`;
     }
     else{
         console.log("lista inválida, digite o nome dos seus amigos");
